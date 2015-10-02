@@ -67,7 +67,6 @@ function readFile(filePath, callBack) {
 
 var server = http.createServer(handleRequests);
 
-/*Requests are completed over port numbers and each one needs a unique number. Most port numbers between 0 - 1024 are reserved so here 3000 is a standard testing port to use. More on port numbers: https://en.wikipedia.org/wiki/Port_(computer_networking) */
 var port = 3000;
 
 server.listen(port);

@@ -1,1 +1,27 @@
-<h1>Welcome to newpost.html</h1>
+<div class = "EntireBlog">
+<div class = "headerInstructions">
+<!--Heading and Instructions -->
+	<h1>Create Your Blog</h1>
+	<p>It's your turn to express your opinion! Enter your information below and hit "Submit".</p>
+</div><br><br><br><br><br><br>
+<!--Name of the Article -->
+<div class = "NameofArticle">
+		<label for = "NameofArticle">Title:</label>
+			<input type="text" name="NameofArticle" id="NameofArticle" placeholder="Name of Your Article"/>
+</div><br>
+<!--Author's Name -->
+<div class = "NameofAuthor">
+	<label for ="NameofAuthor">Author:</label>
+	<input type="text" name="NameofAuthor" id="NameofAuthor" placeholder="Your Name"/>
+</div><br>
+<!--Text Space for Blogging -->
+<div class="Blogtextspace">
+	<!--<label for ="Blogtextspace">Blog:</label>-->
+	<textarea type="text" name="Blogtextspace" rows="20" cols="110" placeholder="Start Writing Here.."></textarea>
+</div>
+</div>
+<!--Submit Button-->
+<div class="SubmitButton">
+	<button class="button" ng-click="submitButton()">Submit Button</button>
+
+	

@@ -1,1 +1,7 @@
-<h1>Welcome to blogposts.html</h1>
+<div class="format4Blogs">
+		<article ng-repeat="post in posts">
+				<h1> {{ post.title }} </h1>
+				<h3> {{ post.author }} </h3>
+				<p> {{ post.body }} </p>	
+		</article>
+</div>
