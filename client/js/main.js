@@ -1,6 +1,6 @@
 //Use to instantiate app, connect factory & controllers and configure app.
 
-var myBlogApp = angular.module('myBlogApp', ['ngRoute', 'ngResource', 'myBlogApp.controllers', 'myBlogApp.factories']);
+var myBlogApp = angular.module('myBlogApp', ['ngRoute', 'ngResource', 'myBlogApp.controllers', 'myBlogApp.services']);
 
 //myBlogApp.controller('BlogController', ['$scope', '$http', function($scope, $http){
 	
@@ -8,15 +8,15 @@ var myBlogApp = angular.module('myBlogApp', ['ngRoute', 'ngResource', 'myBlogApp
 
 myBlogApp.config(function($routeProvider){
 	$routeProvider
-		.when('/', {
-		controller: 'blogController',
+		.when('/home', {
+		controller: 'listController',
 		templateUrl: '../views/blogposts.html'	
 	})
-		.when('/latest', {
+		.when('/newpost', {
 		controller: 'createController',
 		templateUrl: '../views/newpost.html'
 	})
 		.otherwise ({
-		redirectTo: '/'
-	});
+		redirectTo: '/home'
+	})
 });

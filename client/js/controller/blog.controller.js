@@ -2,27 +2,29 @@
 
 var myControllers = angular.module('myBlogApp.controllers', []);
 
-myControllers.controller('blogController', ['$scope', '$location', 'Blog'], function ($scope, $location, Blog) {
- //Have no idea what this does//
-   $scope.posts = [];
-    Blog.getItems().then(function (data) {
-       $scope.items = data;
-        for (var i = 0; i < data.length; i++) {
-            var post = {
-                title: data[i].title,
-                body: data[i].body,
-                author: data[i].author
-            }
-            console.log(post);
-            $scope.posts.unshift(post)
-        }
-   }).catch(function (error) {
-       alert('error');
-   });
-});
-//create a scope to direct location path for making a new blog//
-myControllers.controller('createController', ['$scope', '$location', 'Blog'], function($scope, $location, Blog) {
-    $scope.submitButton = function() {
-        $location.path('../views/blogposts.html');
- };
-});
+myControllers.controller('createController', ['$scope', '$location', 'Blog', 
+function($scope, $location, Blog) {
+   
+   $scope.switchView = function(view){
+			$location.path(view);
+		};
+
+		$scope.blogPost = function(){
+			$scope.blog.timePretty = moment().format("dddd, MMMM Do YYYY");
+			Blog.save($scope.blog).$promise.then(function(data){
+				alert('message sent!');
+			});
+		}
+}]);
+
+myControllers.controller('listController', ['$scope', '$location', 'Blog', 
+function ($scope, $location, Blog) {
+ $scope.switchView = function(view){
+			$location.path(view);
+		};
+
+		$scope.posts = Blog.query().$promise.then(function(data){
+			$scope.blog = data.results;
+		});
+}]);
+

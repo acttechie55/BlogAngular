@@ -1,27 +1,16 @@
-<div class = "EntireBlog">
-<div class = "headerInstructions">
-<!--Heading and Instructions -->
-	<h1>Create Your Blog</h1>
-	<p>It's your turn to express your opinion! Enter your information below and hit "Submit".</p>
-</div><br><br><br><br><br><br>
-<!--Name of the Article -->
-<div class = "NameofArticle">
-		<label for = "NameofArticle">Title:</label>
-			<input type="text" name="NameofArticle" id="NameofArticle" placeholder="Name of Your Article"/>
-</div><br>
-<!--Author's Name -->
-<div class = "NameofAuthor">
-	<label for ="NameofAuthor">Author:</label>
-	<input type="text" name="NameofAuthor" id="NameofAuthor" placeholder="Your Name"/>
-</div><br>
-<!--Text Space for Blogging -->
-<div class="Blogtextspace">
-	<!--<label for ="Blogtextspace">Blog:</label>-->
-	<textarea type="text" name="Blogtextspace" rows="20" cols="110" placeholder="Start Writing Here.."></textarea>
+<div class="container">
+    <input class="btn btn-lrg btn-group-justified" type="submit" ng-click="switchView('/home')" value="home">
 </div>
+<div class="container center-block">
+    <form class="form-horizontal" ng-submit="blogPost()" >
+        <input type="text" ng-model="blog.title" class="form-control margin-top" id="title" placeholder="title..."/>
+        <input type="text" ng-model="blog.author" class="form-control margin-top" id="author" placeholder="author..."/>
+        <textarea type="text" ng-model="blog.content" class="form-control margin-top" rows="7" id="content" placeholder="talk about it..."></textarea> 
+    </form>
+        <button>
+            <input type="submit" class="btn btn-primary margin-top" value="Post!" ng-click="switchView('/home')"/>
+        </button>
 </div>
-<!--Submit Button-->
-<div class="SubmitButton">
-	<button class="button" ng-click="submitButton()">Submit Button</button>
+
 
 	

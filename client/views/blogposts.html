@@ -1,7 +1,14 @@
-<div class="format4Blogs">
-		<article ng-repeat="post in posts">
-				<h1> {{ post.title }} </h1>
-				<h3> {{ post.author }} </h3>
-				<p> {{ post.body }} </p>	
-		</article>
+<div class="container">
+    <div class="container">
+        <input class="btn btn-lrg btn-group-justified" type="submit" ng-click="switchView('/newpost')" value="new post">
+    </div>
+
+    <div ng-repeat="post in blog  | orderBy: '-createdAt'">
+        <div class="container">
+            <h2 class="blog-post-title">{{post.title}}</h2>
+                <h6> by {{post.author}}</h6>
+            <h6>posted {{post.timePretty}}</h6>
+            <div>{{post.content}}</div>
+        </div>
+    </div>
 </div>
